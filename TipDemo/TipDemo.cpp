@@ -59,7 +59,6 @@ TipDemo::TipDemo(QWidget *parent)
         });
 
     ui.label->installEventFilter(this);
-    setMouseTracking(true);
 }
 
 bool TipDemo::eventFilter(QObject* watched, QEvent* event)
