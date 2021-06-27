@@ -6,7 +6,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QDebug>
-#include <qtimer.h>
+#include <QTimer>
 
 ArrowWidget::ArrowWidget(QWidget *parent) : QWidget(parent)
   , m_offset(10)
@@ -110,8 +110,12 @@ void ArrowWidget::Show()
 {
     if (this->isHidden()) {
         this->show();
-        QTimer::singleShot(3000, Qt::PreciseTimer, [this] {this->close(); });
     }
+}
+
+void ArrowWidget::Hide()
+{
+    QTimer::singleShot(300, Qt::PreciseTimer, [this] {this->hide(); });
 }
 
 void ArrowWidget::paintEvent(QPaintEvent *)

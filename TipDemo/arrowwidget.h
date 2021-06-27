@@ -48,6 +48,8 @@ public:
 
     void Show();
 
+    void Hide();
+
 protected:
     void paintEvent(QPaintEvent *) override;
     void mousePressEvent (QMouseEvent *) override;

@@ -64,9 +64,15 @@ TipDemo::TipDemo(QWidget *parent)
 bool TipDemo::eventFilter(QObject* watched, QEvent* event)
 {
     if (watched == ui.label) {
+        qDebug() << event->type();
         if (event->type() == QEvent::ToolTip) {
             qDebug() << "hover enter";
             testToolTip();
+            return true;
+        }
+        else if (event->type() == QEvent::Leave) {
+            qDebug() << "hover leave";
+            ArrowWidget::Instance().Hide();
             return true;
         }
     }
