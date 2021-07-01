@@ -106,11 +106,12 @@ void TipDemo::testToolTip()
 咸鱼白菜也好好味
 我与你永共聚 分分钟需要你
 你似是阳光空气)");
-    QRect rect = ui.label->geometry();
+    //QPoint point = ui.label->mapToGlobal(QPoint(0, 0));//全局坐标topleft
+    QPoint point = mapToGlobal(ui.label->frameGeometry().topLeft());//全局坐标topleft
 
 	aw.setDerection(ArrowWidget::up);
 	aw.setTriangleInfo(15, 10);
-	aw.myMove(mapToGlobal(QPoint(rect.x(), rect.y() + rect.height()))); // up
+	aw.myMove(QPoint(point.x(), point.y() + ui.label->height())); // up
 
     aw.Show();
 }
